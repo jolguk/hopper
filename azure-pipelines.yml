@@ -12,7 +12,7 @@ variables:
   azureSubscription: 'da8566cb-05ce-4638-b32c-baa025d7ae38'
   
   # Web app name
-  webAppName: 'hoppercodeproject'
+  webAppName: 'hoppercodeprojectnew'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -70,9 +70,20 @@ stages:
             displayName: 'Download Pipeline Artifact'
             inputs:
               buildType: 'current'
+
+              - task: AzureResourceGroupDeployment@2
+                inputs:
+                  azureSubscription: 'Microsoft Azure Internal Consumption (dcc3c45e-2c3a-4cc9-8f9c-596e2c293ef6)'
+                  action: 'Create Or Update Resource Group'
+                  resourceGroupName: 'hopperwebapp'
+                  location: 'UK South'
+                  templateLocation: 'Linked artifact'
+                  csmFile: '$(System.DefaultWorkingDirectory)/**/webapp.json'
+                  csmParametersFile: 'webAppName hoppercodeprojectnew -hostingPlanName hopperwebapp-plan -appInsightsLocation "South Central US" -sku "F1 Free"'
+                  deploymentMode: 'Incremental'
             
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: hoppercodeproject'
+            displayName: 'Azure Web App Deploy: hoppercodeprojectnew'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
