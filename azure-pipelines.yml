@@ -78,7 +78,7 @@ stages:
                   resourceGroupName: 'hopperwebapp'
                   location: 'UK South'
                   templateLocation: 'Linked artifact'
-                  csmFile: '$(System.DefaultWorkingDirectory)/**/webapp.json'
+                  csmFile: '$(System.DefaultWorkingDirectory)/webapp.json'
                   overrideParameters: 'webAppName hoppercodeprojectnew -hostingPlanName hopperwebapp-plan -appInsightsLocation "South Central US" -sku "F1 Free"'
                   deploymentMode: 'Incremental'
 
