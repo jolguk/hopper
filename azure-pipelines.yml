@@ -52,6 +52,8 @@ stages:
       inputs:
         targetPath: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
 
+        
+
 - stage: Deploy
   displayName: Deploy stage
   dependsOn: Build
