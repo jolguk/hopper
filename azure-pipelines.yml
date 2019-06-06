@@ -73,16 +73,16 @@ stages:
             inputs:
               buildType: 'current'
 
+         
+
           - task: AzureResourceGroupDeployment@2
+            displayName: 'Azure Deployment:Create Or Update Resource Group action on hopperwebapp'
             inputs:
-                  azureSubscription: 'Microsoft Azure Internal Consumption (dcc3c45e-2c3a-4cc9-8f9c-596e2c293ef6)'
-                  action: 'Create Or Update Resource Group'
-                  resourceGroupName: 'hopperwebapp'
-                  location: 'UK South'
-                  templateLocation: 'Linked artifact'
-                  csmFile: 'armtemplates/webapp.json'
-                  overrideParameters: '-webAppName hoppercodeproject -hostingPlanName hopperwebapp-plan -appInsightsLocation "South Central US" -sku "F1 Free"'
-                  deploymentMode: 'Incremental'
+              azureSubscription: 'Microsoft Azure Internal Consumption (dcc3c45e-2c3a-4cc9-8f9c-596e2c293ef6)'
+              resourceGroupName: hopperwebapp
+              location: 'UK South'
+              csmFile: armtemplates/webapp.json
+              overrideParameters: '-webAppName hoppercodeproject -hostingPlanName hopperwebapp-plan -appInsightsLocation "South Central US" -sku "F1 Free"'
 
           
                           
