@@ -12,7 +12,7 @@ variables:
   azureSubscription: 'da8566cb-05ce-4638-b32c-baa025d7ae38'
   
   # Web app name
-  webAppName: 'hoppercodeprojectnew'
+  webAppName: 'hoppercodeproject'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -76,7 +76,7 @@ stages:
           
                           
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: hoppercodeprojectnew'
+            displayName: 'Azure Web App Deploy: hoppercodeproject'
             inputs:
               azureSubscription: $(azureSubscription)
               appType: webAppLinux
