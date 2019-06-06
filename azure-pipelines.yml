@@ -52,11 +52,7 @@ stages:
       inputs:
         targetPath: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
 
-     - task: CopyFiles@2
-       inputs:
-      SourceFolder: 'armtemplates'
-      Contents: '**'
-      TargetFolder: $(build.artifactstagingdirectory)
+   
 
 - stage: Deploy
   displayName: Deploy stage
@@ -77,17 +73,7 @@ stages:
             inputs:
               buildType: 'current'
 
-          - task: AzureResourceGroupDeployment@2
-            inputs:
-                  azureSubscription: 'Microsoft Azure Internal Consumption (dcc3c45e-2c3a-4cc9-8f9c-596e2c293ef6)'
-                  action: 'Create Or Update Resource Group'
-                  resourceGroupName: 'hopperwebapp'
-                  location: 'UK South'
-                  templateLocation: 'Linked artifact'
-                  csmFile: '$(System.DefaultWorkingDirectory)/webapp.json'
-                  overrideParameters: 'webAppName hoppercodeprojectnew -hostingPlanName hopperwebapp-plan -appInsightsLocation "South Central US" -sku "F1 Free"'
-                  deploymentMode: 'Incremental'
-
+          
                           
           - task: AzureWebApp@1
             displayName: 'Azure Web App Deploy: hoppercodeprojectnew'
