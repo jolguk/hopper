@@ -52,7 +52,11 @@ stages:
       inputs:
         targetPath: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
 
-        
+     - task: CopyFiles@2
+       inputs:
+      SourceFolder: 'armtemplates'
+      Contents: '**'
+      TargetFolder: $(build.artifactstagingdirectory)
 
 - stage: Deploy
   displayName: Deploy stage
