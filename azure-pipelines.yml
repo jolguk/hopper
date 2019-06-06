@@ -79,9 +79,10 @@ stages:
                   location: 'UK South'
                   templateLocation: 'Linked artifact'
                   csmFile: '$(System.DefaultWorkingDirectory)/**/webapp.json'
-                  csmParametersFile: 'webAppName hoppercodeprojectnew -hostingPlanName hopperwebapp-plan -appInsightsLocation "South Central US" -sku "F1 Free"'
+                  overrideParameters: 'webAppName hoppercodeprojectnew -hostingPlanName hopperwebapp-plan -appInsightsLocation "South Central US" -sku "F1 Free"'
                   deploymentMode: 'Incremental'
-            
+
+                          
           - task: AzureWebApp@1
             displayName: 'Azure Web App Deploy: hoppercodeprojectnew'
             inputs:
