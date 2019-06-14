@@ -12,7 +12,7 @@ variables:
   azureSubscription: 'dcc3c45e-2c3a-4cc9-8f9c-596e2c293ef6'
   
   # Web app name
-  webAppName: 'hoppercodeproject'
+  webAppName: 'hoppercodeprojectfriday'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
