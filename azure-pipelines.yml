@@ -12,7 +12,7 @@ variables:
   azureSubscription: 'hmctsado'
   
   # Web app name
-  webAppName: 'tuestest1'
+  webAppName: 'tuestest2'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
